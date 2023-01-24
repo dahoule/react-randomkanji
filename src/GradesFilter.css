@@ -1,0 +1,25 @@
+.grades-filter {
+    display: flex;
+    color: black;
+    padding: 0 1rem;
+  }
+  
+  .grades-filter__control {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: .5rem 0;
+  }
+  
+  .grades-filter label {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
+  
+  .grades-filter select {
+    font: inherit;
+    padding: 0.2rem 1rem;
+    font-weight: auto;
+    border-radius: 3px;
+  }
