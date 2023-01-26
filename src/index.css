@@ -15,8 +15,8 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
+  border: 1px solid rgb(143, 143, 143);
+  padding: 20px 20px;
   border-radius: 5px;
 }
 
@@ -53,22 +53,16 @@ body {
   width: 100%;
 }
 
-.kanji, .saved-kanji-entry {
+h1 {
+  text-align: center;
+}
+
+.kanji, .saved-kanji-entry, .saved-kanji-entry-reminder {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 7px;
-}
-
-.kanji.reminder {
-  border-left: 5px solid green;
-}
-
-.kanji h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .saved-kanji-entry h3 {
@@ -77,12 +71,26 @@ body {
   justify-content: space-between;
 }
 
-.saved-kanji-entry {
+.saved-kanji-entry, .saved-kanji-entry-reminder {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
   display: flex;
-  border: 1px solid rgb(125, 125, 125);
+  border: 1px solid rgb(170, 170, 170);
   margin-bottom: 10px;
+  background-color: rgb(184, 227, 243);
 }
+
+.saved-kanji-entry-reminder {
+  border-left: 8px solid green;
+  padding-left: 12px;
+}
+
+.kanji h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
 
 footer {
   margin-top: 30px;
@@ -101,3 +109,8 @@ footer {
   margin: 10px;
 
 }
+
+.small-h3 {
+  font-size: 12px;
+}
+

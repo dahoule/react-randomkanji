@@ -8,6 +8,7 @@ const App = (props) => {
   const [data2, setKanji] = useState([])
   const [currentKanji, setCurrentKanji] = useState(data2)
   const [savedKanji, setSavedKanji] = useState([])
+  const [reminderClass, setReminderClass] = useState(false)
   const [grade, setGrade] = useState('random')
 
   useEffect(() => {
@@ -46,7 +47,7 @@ const App = (props) => {
   }
 
   const pinKanjiHandler = () => {
-    if (savedKanji.length < 3) {
+    if (savedKanji.length < 3 && ! savedKanji.includes(currentKanji)) {
       setSavedKanji([...savedKanji, currentKanji]);
     }
     
@@ -56,7 +57,12 @@ const App = (props) => {
     setSavedKanji(savedKanji.filter((savedKanji) => savedKanji.kanji != id))
   }
 
-
+  // Toggle
+  const toggleReminder = (id) => {
+    //alert(reminderClass)
+    //setSavedKanji(savedKanji.map((savedKanji) => savedKanji.id === id ? {...savedKanji, reminder: !savedKanji.reminder} : savedKanji))
+    //setReminderClass('reminder-on')
+  }
   
   // handle the grade filter change
   const filterChangeHander = selectedGrade => {
@@ -80,7 +86,7 @@ const App = (props) => {
         <div className="thumbtack">
             <FaThumbtack 
               style={{color: 'blue', cursor: 'pointer'}} 
-              onClick={() =>pinKanjiHandler(data2.kanji)} /> Pin to board
+              onClick={() =>pinKanjiHandler(data2.kanji)} /> Save this kanji
         </div>
         )}
            
@@ -88,7 +94,7 @@ const App = (props) => {
 
         <SavedKanji />
         {savedKanji.map(savedKanji1 => (
-          <div className="saved-kanji-entry">
+          <div className={`text ${reminderClass ? "saved-kanji-entry-reminder" : "saved-kanji-entry"}`} onDoubleClick={() => toggleReminder((s) => !s)}>
             <div key="{savedKanji1.kanji}"><h3>{savedKanji1.kanji}<FaTimes 
                 style={{color: 'red', cursor: 'pointer'}} 
                 onClick={() => deleteSavedKanjiHandler(savedKanji1.kanji)} /></h3>
